@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order successful</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:  #e0eee0;
+        }
+
+        header {
+            background-color: #28a745;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .grocery-icon {
+            display: inline-block;
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+        /* Cart and Logout Links Styles */
+        .cart-logout-links {
+            display: flex;
+            align-items: center;
+            position: absolute;
+                top: 15px;
+            right: 15px;
+        }
+
+        .cart-logout-links a {
+            margin-left: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Grocery Store Header Styles */
+        header h1 {
+            margin-top: 20px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #28a745;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .main-container {
+            flex: 1; /* Fill available vertical space */
+            padding-bottom: 60px; /* Add padding at the bottom to accommodate the footer */
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .success-message {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 24px;
+            color: #000;
+        }
+
+
+
+
+   .proceed-btn {
+            background-color: #007bff; /* Blue background */
+            border-color: #007bff;
+            color: #fff; /* Text color */
+            padding: 6px 12px;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+   .proceed-btn:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+   }
+
+   .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+   }
+    </style>
+    </head>
+<body>
+    <header>
+        <div class="cart-logout-links">
+            <a href="/cart">
+                <div class="cart-icon">&#128722;</div>
+                Cart
+            </a>
+            <a href="/logout">
+                <div class="my-profile-icon">
+                    <i class="fas fa-door-open"></i>
+                </div>
+                Logout
+            </a>
+            <a href="/my_profile/{{ user1.id }}">
+                <div class="my-profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                My Profile
+            </a>
+        </div>
+        <div>
+            <i class="fas fa-shopping-cart grocery-icon"></i>
+            <h1 style="display: inline;">Grocery Store</h1>
+        </div>
+
+    </header>
+    <div class="main-container">
+        <div class="container">
+            <h2 class="success-message">Order Successful! We'll deliver within 40 minutes.</h2>
+        </div>
+        <div class="button-container">
+            <a href="/user_home_page" class="proceed-btn">Buy more products</a>
+        </div>
+    </div>
+<footer>
+        &copy; 2023 Grocery Store. All rights reserved.
+</footer>
+
+</body>
+</html>

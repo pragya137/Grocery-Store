@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:  #e0eee0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #28a745;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .grocery-icon {
+            display: inline-block;
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+        .cart-logout-links {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .cart-logout-links a {
+            margin-left: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header h1 {
+            margin-top: 20px;
+        }
+
+        /* Main Content Styles */
+        .main-container {
+            flex: 1; /* Fill available vertical space */
+            padding-bottom: 60px; /* Add padding at the bottom to accommodate the footer */
+            padding-top: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        /* Order History Table Styles */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            text-align: center;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+
+        .table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .table tr:hover {
+            background-color: #e2e2e2;
+        }
+
+        .table td:nth-child(1) {
+            font-weight: bold;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #28a745;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Buttons Styles */
+        .search-btn,
+        .see-all-products-btn {
+            background-color: #28a745;
+            border-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .search-btn:hover,
+        .see-all-products-btn:hover {
+            background-color: #218838;
+            border-color: #218838;
+        }
+
+
+        @media (max-width: 768px) {
+            .table td {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="cart-logout-links">
+            <a href="/cart">
+                <div class="cart-icon">&#128722;</div>
+                Cart
+            </a>
+            <a href="/logout">
+                <div class="my-profile-icon">
+                    <i class="fas fa-door-open"></i>
+                </div>
+                Logout
+            </a>
+            <a href="/my_profile/{{ user.id }}">
+                <div class="my-profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                My Profile
+            </a>
+        </div>
+
+        <div>
+            <i class="fas fa-shopping-cart grocery-icon"></i>
+            <h1 style="display: inline;">Grocery Store</h1>
+        </div>
+         </header>
+        <div class="main-container">
+
+        <h2>Welcome, {{ name }}</h2>
+        {% if items|length == 0 %}
+            <h1>No Order History</h1>
+        {% else %}
+          <table class="table">
+        <h4>Order History</h4>
+            <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Quantity</th>
+                <th>Price/unit or Kg</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.price }}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        <a href="/user_home_page">Do more shopping</a>
+    <footer>
+        &copy; 2023 Grocery Store. All rights reserved.
+    </footer>
+
+</body>
+</html>

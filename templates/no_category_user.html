@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>No Category</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color:  #e0eee0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+
+        header {
+            background-color: #28a745;
+            padding: 10px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .grocery-icon {
+            display: inline-block;
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+        /* Cart and Logout Links Styles */
+        .cart-logout-links {
+            display: flex;
+            align-items: center;
+            position: absolute;
+                top: 15px;
+            right: 15px;
+        }
+
+        .cart-logout-links a {
+            margin-left: 10px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Grocery Store Header Styles */
+        header h1 {
+            margin-top: 20px;
+        }
+        page-content {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure page content takes up at least the full viewport height */
+        }
+
+
+
+        /* Categories/Products Grid Styles */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background-color: #fff;
+        }
+
+        .grid-item {
+            border: 1px solid #ddd;
+            padding: 20px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+
+         .grid-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #28a745;
+            padding: 10px 0;
+            text-align: center;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+
+            width: 100%;
+        }
+
+        .main-container {
+            flex: 1;
+            padding-bottom: 60px;
+        }
+
+
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+       }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="page-content">
+    <header>
+        <div class="cart-logout-links">
+            <a href="/cart">
+                <div class="cart-icon">&#128722;</div>
+                Cart
+            </a>
+            <a href="/logout">
+                <div class="my-profile-icon">
+                    <i class="fas fa-door-open"></i>
+                </div>
+                Logout
+            </a>
+            <a href="/my_profile/{{ user.id }}">
+                <div class="my-profile-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                My Profile
+            </a>
+        </div>
+        <div>
+            <i class="fas fa-shopping-cart grocery-icon"></i>
+            <h1 style="display: inline;">Grocery Store</h1>
+        </div>
+
+    </header>
+
+    <h1 align="center">No Category Found</h1>
+    <p align="center">The requested category does not exist.</p>
+    <a href="/user_home_page" align="center">Go Back To Home</a>
+    </div>
+    <footer>
+        &copy; 2023 Grocery Store. All rights reserved.
+    </footer>
+
+</body>
+</html>

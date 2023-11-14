@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+
+        .colorful-section {
+            background-color: #4CAF50;
+            padding: 15px 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        body {
+            background-color: #f2f2f2;
+        }
+
+        /* Custom style for the login button */
+        .btn-login {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        /* Custom style for the footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+
+        .grocery-icon {
+            font-size: 48px;
+            color: #fff;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="colorful-section">
+        <i class="fas fa-shopping-cart grocery-icon"></i>
+        <h1 style="display: inline;">Grocery Store</h1>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="text-center mb-4">Login as Admin</h1>
+                        {% with messages = get_flashed_messages() %}
+                            {% if messages %}
+                                <div class="alert alert-info">
+                                    <ul class="mb-0">
+                                        {% for message in messages %}
+                                            <li>{{ message }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        <form method="POST" action="/admin_login">
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" class="form-control" name="username" id="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password:</label>
+                                <input type="password" class="form-control" name="password" id="password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block btn-login">Login</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        &copy; 2023 Grocery Store. All rights reserved.
+    </footer>
+
+
+</body>
+</html>
